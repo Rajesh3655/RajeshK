@@ -1409,22 +1409,32 @@
 
         const result = await response.json();
 
-        Swal.fire({
-            title: result.success ? 'Message Sent!' : 'Failed!',
-            text: result.message,
-            icon: result.success ? 'success' : 'error',
-            confirmButtonColor: '#2563eb'
-        });
+       Swal.fire({
+    toast: true,
+    position: 'top-end',   // Top-right
+    icon: result.success ? 'success' : 'error',
+    title: result.success ? 'Message Sent!' : 'Failed!',
+    text: result.message,
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true
+});
+
 
         if (result.success) this.reset();
 
     } catch (error) {
         Swal.fire({
-            title: 'Error!',
-            text: 'Something went wrong. Try again later.',
-            icon: 'error',
-            confirmButtonColor: '#d33'
-        });
+    toast: true,
+    position: 'top-end',
+    icon: 'error',
+    title: 'Error!',
+    text: 'Something went wrong. Try again later.',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true
+});
+
     } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
