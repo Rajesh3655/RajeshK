@@ -21,7 +21,7 @@ def index():
 def catch_all(subpath):
     return redirect(url_for('index'))
 
-@app.route('/contact', methods=['POST'])
+@app.route('/send-message', methods=['POST'])
 def contact():
     name = request.form.get('name', '').strip()
     email = request.form.get('email', '').strip()
